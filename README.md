@@ -2,10 +2,10 @@
 
 ## Quick Run
 
-The main Streamlit app file is `app.py`.
+The main Streamlit app file is `Home.py`.
 
 ```shell
-streamlit run app.py
+streamlit run Home.py
 ```
 
 ## Learning Objectives

@@ -1,3 +1,6 @@
+# Main Streamlit app file.
+# Run this project with: streamlit run Home.py
+
 import streamlit as st
 
 from app_ui import (

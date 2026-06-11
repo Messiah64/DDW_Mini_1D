@@ -1,0 +1,340 @@
+.stApp {
+    background:
+        linear-gradient(135deg, rgba(255, 247, 237, 0.94), rgba(239, 246, 255, 0.96)),
+        #fff7ed;
+}
+
+.block-container {
+    max-width: 1120px;
+    padding-top: 2.4rem;
+    padding-bottom: 3rem;
+}
+
+.pancake-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 28px;
+    align-items: center;
+    padding: 34px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(120, 53, 15, 0.18);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(255, 237, 213, 0.98), rgba(219, 234, 254, 0.92)),
+        #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+.hero-copy {
+    min-width: 0;
+}
+
+.hero-kicker,
+.card-kicker,
+.info-label {
+    margin: 0 0 8px;
+    color: #9a3412;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.hero-copy h1 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 2.7rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.hero-copy p:not(.hero-kicker) {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.pancake-art {
+    position: relative;
+    min-height: 190px;
+}
+
+.pancake,
+.plate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 999px;
+}
+
+.pancake {
+    width: 205px;
+    height: 42px;
+    border: 1px solid rgba(146, 64, 14, 0.18);
+    box-shadow: inset 0 -8px 12px rgba(120, 53, 15, 0.12);
+}
+
+.pancake.syrup {
+    bottom: 102px;
+    background: linear-gradient(180deg, #fde68a, #f59e0b);
+}
+
+.pancake.golden {
+    bottom: 66px;
+    width: 226px;
+    background: linear-gradient(180deg, #fed7aa, #fb923c);
+}
+
+.pancake.berry {
+    bottom: 31px;
+    width: 214px;
+    background: linear-gradient(180deg, #fecdd3, #f97316);
+}
+
+.plate {
+    bottom: 14px;
+    width: 250px;
+    height: 26px;
+    background: #dbeafe;
+    border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.steam {
+    position: absolute;
+    top: 10px;
+    width: 18px;
+    height: 58px;
+    border-left: 3px solid rgba(14, 116, 144, 0.34);
+    border-radius: 50%;
+}
+
+.steam-one {
+    right: 104px;
+}
+
+.steam-two {
+    right: 144px;
+    top: 23px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.info-card,
+.menu-card,
+.animation-card,
+.timeline {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+}
+
+.info-card {
+    padding: 18px;
+}
+
+.info-card strong {
+    display: block;
+    color: #111827;
+    font-size: 1.08rem;
+}
+
+.info-card p {
+    margin: 8px 0 0;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.section-heading {
+    margin: 22px 0 12px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+}
+
+.section-heading p {
+    margin: 6px 0 0;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.stTextArea textarea {
+    min-height: 118px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: rgba(255, 255, 255, 0.96);
+    color: #111827;
+    line-height: 1.55;
+}
+
+.stButton > button {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #1f2937;
+    color: #ffffff;
+    font-weight: 750;
+}
+
+.stButton > button:hover {
+    border-color: #0f766e;
+    background: #0f766e;
+    color: #ffffff;
+}
+
+.stButton > button:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.stButton > button:disabled {
+    border-color: #cbd5e1;
+    background: #cbd5e1;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.menu-card {
+    min-height: 178px;
+    padding: 20px;
+    margin-top: 8px;
+}
+
+.menu-card.original {
+    border-top: 5px solid #f59e0b;
+}
+
+.menu-card.sorted {
+    border-top: 5px solid #0f766e;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-chip {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: #1f2937;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    font-size: 0.92rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.empty-text {
+    margin: 0;
+    color: #64748b;
+}
+
+.animation-card {
+    padding: 20px;
+    margin: 18px 0 10px;
+    border-left: 5px solid #2563eb;
+}
+
+.animation-topline {
+    display: flex;
+    justify-content: space-between;
+    color: #2563eb;
+    font-weight: 800;
+}
+
+.animation-message {
+    margin: 12px 0 8px;
+    color: #111827;
+    font-size: 1.02rem;
+    line-height: 1.55;
+}
+
+.animation-stack {
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.timeline {
+    padding: 8px 18px 18px;
+    margin-top: 12px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.timeline-item:last-child {
+    border-bottom: 0;
+}
+
+.timeline-number {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffedd5;
+    color: #9a3412;
+    font-weight: 800;
+}
+
+.timeline-item strong {
+    color: #111827;
+}
+
+.timeline-item p {
+    margin: 5px 0 0;
+    color: #64748b;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+    .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .pancake-hero,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pancake-hero {
+        padding: 24px;
+    }
+
+    .hero-copy h1 {
+        font-size: 2.1rem;
+    }
+
+    .pancake-art {
+        min-height: 165px;
+    }
+}

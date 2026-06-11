@@ -1,0 +1,343 @@
+.stApp {
+    background:
+        radial-gradient(circle at top left, rgba(251, 191, 36, 0.20), transparent 32rem),
+        radial-gradient(circle at top right, rgba(20, 184, 166, 0.14), transparent 30rem),
+        linear-gradient(135deg, #fff7ed 0%, #eff6ff 52%, #f8fafc 100%);
+}
+
+.block-container {
+    max-width: 1120px;
+    padding-top: 2.4rem;
+    padding-bottom: 3rem;
+}
+
+.app-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 30px;
+    align-items: center;
+    padding: 34px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 20px 52px rgba(15, 23, 42, 0.10);
+    overflow: hidden;
+}
+
+.hero-kicker,
+.card-label,
+.metric-card p {
+    margin: 0 0 8px;
+    color: #9a3412;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.app-hero h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 2.65rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.app-hero p:not(.hero-kicker) {
+    max-width: 690px;
+    margin: 14px 0 0;
+    color: #475569;
+    font-size: 1.04rem;
+    line-height: 1.65;
+}
+
+.sort-hero-art {
+    position: relative;
+    min-height: 180px;
+}
+
+.hero-card {
+    position: absolute;
+    width: 76px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #111827;
+    font-size: 1.45rem;
+    font-weight: 850;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
+}
+
+.card-one {
+    top: 18px;
+    left: 14px;
+    background: #fed7aa;
+    transform: rotate(-9deg);
+}
+
+.card-two {
+    top: 58px;
+    left: 88px;
+    background: #bfdbfe;
+    transform: rotate(7deg);
+}
+
+.card-three {
+    top: 100px;
+    left: 44px;
+    background: #99f6e4;
+    transform: rotate(-3deg);
+}
+
+.hero-arrow {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.metric-card,
+.workflow-card,
+.result-card,
+.sort-frame,
+.note-card {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.metric-card {
+    min-height: 132px;
+    padding: 20px;
+    border-top: 5px solid #2563eb;
+}
+
+.metric-card.teal {
+    border-top-color: #0f766e;
+}
+
+.metric-card.amber {
+    border-top-color: #f59e0b;
+}
+
+.metric-card strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #111827;
+    font-size: 1.25rem;
+}
+
+.metric-card span,
+.workflow-card p,
+.empty-result,
+.note-card {
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.section-title {
+    margin: 26px 0 14px;
+}
+
+.section-title h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+.section-title p {
+    margin: 7px 0 0;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.workflow-card {
+    min-height: 134px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.workflow-card strong {
+    display: block;
+    color: #111827;
+    font-size: 1.12rem;
+}
+
+.workflow-card p {
+    margin: 9px 0 0;
+}
+
+.note-card {
+    padding: 16px 18px;
+    margin-top: 18px;
+    border-left: 5px solid #0f766e;
+}
+
+.stButton > button {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #111827;
+    color: #ffffff;
+    font-weight: 780;
+    letter-spacing: 0;
+}
+
+.stButton > button:hover {
+    border-color: #0f766e;
+    background: #0f766e;
+    color: #ffffff;
+}
+
+.stButton > button:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.stButton > button:disabled {
+    border-color: #cbd5e1;
+    background: #cbd5e1;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.stTextInput input,
+.stTextArea textarea {
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: rgba(255, 255, 255, 0.96);
+    color: #111827;
+    line-height: 1.55;
+}
+
+.result-card {
+    min-height: 156px;
+    padding: 20px;
+    margin-top: 14px;
+    border-top: 5px solid #2563eb;
+}
+
+.result-chip-row,
+.number-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.result-chip,
+.number-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #111827;
+    font-weight: 780;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.result-chip.text {
+    justify-content: flex-start;
+}
+
+.sort-frame {
+    padding: 20px;
+    margin: 18px 0;
+    border-left: 5px solid #2563eb;
+}
+
+.sort-frame-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: 850;
+}
+
+.sort-frame p {
+    margin: 12px 0 16px;
+    color: #111827;
+    line-height: 1.55;
+}
+
+.number-card {
+    min-width: 54px;
+    min-height: 50px;
+    font-size: 1.02rem;
+}
+
+.number-card.active {
+    transform: translateY(-8px);
+    border-color: #2563eb;
+    background: #dbeafe;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.16);
+}
+
+.number-card.sorted {
+    border-color: #0f766e;
+    background: #ccfbf1;
+}
+
+.empty-result {
+    margin: 0;
+}
+
+.stPageLink a {
+    border-radius: 8px;
+    color: #111827;
+    font-weight: 750;
+}
+
+.stPageLink a:hover {
+    color: #0f766e;
+}
+
+@media (max-width: 760px) {
+    .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .app-hero {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .app-hero h1 {
+        font-size: 2.08rem;
+    }
+
+    .sort-hero-art {
+        min-height: 156px;
+    }
+
+    .hero-card {
+        width: 68px;
+        height: 52px;
+    }
+
+    .result-card {
+        min-height: 132px;
+    }
+}

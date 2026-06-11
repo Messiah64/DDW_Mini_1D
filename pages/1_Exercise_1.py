@@ -4,6 +4,7 @@ from library import gen_random_int, create_string, insertion_sort_steps
 from app_ui import (
     apply_app_style,
     render_header,
+    render_panel_start,
     play_sort_animation,
     render_result,
 )
@@ -77,8 +78,12 @@ render_header(
     "Generate ten random integers and sort them step by step.",
 )
 
-st.subheader("Controls")
-button_columns = st.columns(3)
+render_panel_start(
+    "Build a random stack",
+    "Generate a shuffled list, then watch insertion sort move the number cards.",
+)
+
+button_columns = st.columns([1, 1, 1, 4])
 animation_slot = st.empty()
 
 with button_columns[0]:

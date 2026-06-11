@@ -1,26 +1,63 @@
 import time
+from html import escape
+from pathlib import Path
 
 import streamlit as st
 
 
+STYLE_FILE = Path(__file__).parent / "styles" / "app.css"
+
+
 def apply_app_style():
-    # Keep the app close to default Streamlit styling.
-    pass
+    # The shared look for Home, Exercise 1, and Exercise 2 lives in CSS.
+    css = STYLE_FILE.read_text(encoding="utf-8")
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 
 def render_header(kicker: str, title: str, description: str):
-    st.caption(kicker)
-    st.title(title)
-    st.write(description)
+    st.markdown(
+        f"""
+        <section class="app-hero">
+            <div>
+                <p class="hero-kicker">{escape(kicker)}</p>
+                <h1>{escape(title)}</h1>
+                <p>{escape(description)}</p>
+            </div>
+            <div class="sort-hero-art" aria-hidden="true">
+                <div class="hero-card card-one">9</div>
+                <div class="hero-card card-two">2</div>
+                <div class="hero-card card-three">6</div>
+                <div class="hero-arrow">sort</div>
+            </div>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_metric_card(title: str, content: str, description: str, tone: str = "blue"):
-    st.metric(title, content, help=description)
+    st.markdown(
+        f"""
+        <div class="metric-card {escape(tone)}">
+            <p>{escape(title)}</p>
+            <strong>{escape(content)}</strong>
+            <span>{escape(description)}</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_panel_start(title: str, description: str):
-    st.subheader(title)
-    st.write(description)
+    st.markdown(
+        f"""
+        <div class="section-title">
+            <h2>{escape(title)}</h2>
+            <p>{escape(description)}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_panel_end():
@@ -28,7 +65,14 @@ def render_panel_end():
 
 
 def render_note(text: str):
-    st.info(text)
+    st.markdown(
+        f"""
+        <div class="note-card">
+            {escape(text)}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def split_display_text(value: str) -> list[str]:
@@ -52,34 +96,69 @@ def split_display_text(value: str) -> list[str]:
 
 
 def render_result(label: str, value: str, empty_text: str, chip_style: str = "number"):
-    st.write(f"**{label}**")
-
     items = split_display_text(value)
 
     if len(items) == 0:
-        st.write(empty_text)
+        content = f'<p class="empty-result">{escape(empty_text)}</p>'
     else:
-        st.write(", ".join(items))
+        chips = []
+
+        for item in items:
+            chips.append(f'<span class="result-chip {escape(chip_style)}">{escape(item)}</span>')
+
+        content = '<div class="result-chip-row">' + "".join(chips) + "</div>"
+
+    st.markdown(
+        f"""
+        <div class="result-card">
+            <p class="card-label">{escape(label)}</p>
+            {content}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_sort_frame(step, step_number: int, total_steps: int, target=None):
     values = step["values"]
-    message = step["message"]
     active_indices = step["active_indices"]
+    sorted_until = step["sorted_until"]
+    message = step["message"]
+    cards = []
+
+    for index, value in enumerate(values):
+        state_class = ""
+
+        if index in active_indices:
+            state_class = "active"
+        elif index <= sorted_until:
+            state_class = "sorted"
+
+        cards.append(
+            f'<div class="number-card {state_class}"><span>{escape(str(value))}</span></div>'
+        )
+
+    active_text = ""
 
     if len(active_indices) > 0:
-        message += f" Active index: {active_indices}"
+        active_text = f"<span>Active index: {escape(str(active_indices))}</span>"
 
-    text = (
-        f"Step {step_number} of {total_steps}\n\n"
-        f"{message}\n\n"
-        f"{values}"
+    cards_html = "".join(cards)
+    html = (
+        '<div class="sort-frame">'
+        '<div class="sort-frame-top">'
+        f"<span>Step {step_number} of {total_steps}</span>"
+        f"{active_text}"
+        "</div>"
+        f"<p>{escape(message)}</p>"
+        f'<div class="number-row">{cards_html}</div>'
+        "</div>"
     )
 
     if target is None:
-        st.write(text)
+        st.markdown(html, unsafe_allow_html=True)
     else:
-        target.text(text)
+        target.markdown(html, unsafe_allow_html=True)
 
 
 def play_sort_animation(steps, target, delay_seconds: float = 0.25):
@@ -99,5 +178,12 @@ def play_sort_animation(steps, target, delay_seconds: float = 0.25):
 
 
 def render_workflow_step(title: str, description: str):
-    st.write(f"**{title}**")
-    st.write(description)
+    st.markdown(
+        f"""
+        <div class="workflow-card">
+            <strong>{escape(title)}</strong>
+            <p>{escape(description)}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )

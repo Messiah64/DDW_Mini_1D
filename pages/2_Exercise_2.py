@@ -3,6 +3,7 @@ from library import create_string, insertion_sort_steps
 from app_ui import (
     apply_app_style,
     render_header,
+    render_panel_start,
     play_sort_animation,
     render_result,
 )
@@ -62,7 +63,11 @@ render_header(
     "Type comma-separated integers and sort them step by step.",
 )
 
-st.subheader("Enter numbers")
+render_panel_start(
+    "Type your own stack",
+    "Use commas between integers, then watch the cards move into sorted order.",
+)
+
 entered_numbers = st.text_input(
     "Numbers",
     value=st.session_state['numbers'],
@@ -71,7 +76,7 @@ entered_numbers = st.text_input(
 
 st.session_state['numbers'] = entered_numbers
 
-button_columns = st.columns(2)
+button_columns = st.columns([1, 1, 4])
 animation_slot = st.empty()
 
 with button_columns[0]:
@@ -86,8 +91,18 @@ with button_columns[1]:
 if st.session_state['input_error']:
     st.error(st.session_state['input_error'], icon=":material/error:")
 
-render_result(
-    "Sorted Numbers",
-    st.session_state['sorted_numbers'],
-    "Sorted output will appear here after you enter integers.",
-)
+result_columns = st.columns(2)
+
+with result_columns[0]:
+    render_result(
+        "Input Numbers",
+        st.session_state['numbers'],
+        "Type numbers to build a stack.",
+    )
+
+with result_columns[1]:
+    render_result(
+        "Sorted Numbers",
+        st.session_state['sorted_numbers'],
+        "Sorted output will appear here after you enter integers.",
+    )

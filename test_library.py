@@ -1,6 +1,6 @@
 from library import gen_random_int, my_sort, create_string, insertion_sort_steps
 from library import pancake_sort_steps, pancake_sort_text
-import pytest
+from exercise_3_logic import make_menu_items, make_menu_string, sort_menu_text
 
 def test_gen_random_int():
     output = gen_random_int(10, 100)
@@ -38,3 +38,25 @@ def test_pancake_sort_steps():
     assert array == ["delta", "alpha", "charlie", "bravo"]
     assert steps[-1]["items"] == ["alpha", "bravo", "charlie", "delta"]
     assert steps[-1]["action"] == "Sorted"
+
+def test_make_menu_items():
+    output = make_menu_items(" Mango Stack, , apple stack, Banana Stack ")
+    assert output == ["Mango Stack", "apple stack", "Banana Stack"]
+
+def test_make_menu_string():
+    output = make_menu_string(["Mango Stack", "Apple Stack"])
+    assert output == "Mango Stack, Apple Stack"
+
+def test_sort_menu_text():
+    output = sort_menu_text("delta, alpha, charlie, bravo")
+
+    assert output["ok"] == True
+    assert output["original_items"] == ["delta", "alpha", "charlie", "bravo"]
+    assert output["sorted_items"] == ["alpha", "bravo", "charlie", "delta"]
+    assert output["steps"][-1]["action"] == "Sorted"
+
+def test_sort_menu_text_with_blank_input():
+    output = sort_menu_text(" , , ")
+
+    assert output["ok"] == False
+    assert output["error"] == "Please enter at least one menu item."

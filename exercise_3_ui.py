@@ -129,15 +129,13 @@ def render_flip_steps(steps: list[dict]):
 
     for index, step in enumerate(steps, start=1):
         rows.append(
-            f"""
-            <div class="timeline-item">
-                <span class="timeline-number">{index}</span>
-                <div>
-                    <strong>{escape(step["action"])}</strong>
-                    <p>{escape(step["message"])}</p>
-                </div>
-            </div>
-            """
+            '<div class="timeline-item">'
+            f'<span class="timeline-number">{index}</span>'
+            "<div>"
+            f"<strong>{escape(step['action'])}</strong>"
+            f"<p>{escape(step['message'])}</p>"
+            "</div>"
+            "</div>"
         )
 
     st.markdown(
